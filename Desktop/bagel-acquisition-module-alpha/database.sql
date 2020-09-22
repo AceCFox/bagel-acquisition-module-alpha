@@ -19,3 +19,11 @@ CREATE TABLE "tag"(
 "color" VARCHAR(20),
 "label" VARCHAR(50)
 );
+
+INSERT INTO "store"(
+"name", "status") VALUES
+('Aldi', 'favorite'),
+('Target', null),
+('Shuang Hur', null),
+('Wedge', null),
+('Cub', null);
