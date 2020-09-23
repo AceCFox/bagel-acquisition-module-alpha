@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import MainList from "./modules/MainList";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <p>
           Welcome to Bagel Aquisition Module Alpha
         </p>
+        <MainList/>
       </header>
     </div>
   );
