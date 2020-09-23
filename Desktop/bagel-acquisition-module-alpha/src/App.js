@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Welcome to Bagel Aquisition Module Alpha
+          Welcome to Bagel Acquisition Module Alpha
         </p>
         <MainList/>
       </header>

@@ -1,15 +1,33 @@
 import React from 'react';
+import {ListItem, List, ListItemIcon, ListItemSecondaryAction, ListItemText, Paper, IconButton} from '@material-ui/core';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 
 function ItemList() {
   return (
     <div >
-        <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-        </ul>
+        <br/>
+        <Paper>
+            <List dense>
+                <ListItem button>
+                    <ListItemIcon>
+                        <CheckBoxOutlineBlankIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary = 'Item 1'/>
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <CheckBoxOutlineBlankIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary = 'Item 2'/>
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <CheckBoxOutlineBlankIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary = 'Item 3'/>
+                </ListItem>
+            </List>
+        </Paper>
     </div>
   );
 }
