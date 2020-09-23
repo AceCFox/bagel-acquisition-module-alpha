@@ -4,7 +4,9 @@ CREATE TABLE "item"(
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(50),
     "tag_id" INT REFERENCES "tag",
-    "refresh period" INT);
+    "refresh period" INT,
+    "needed" BOOLEAN default true
+);
 
 CREATE TABLE "store"(
 	"id" SERIAL PRIMARY KEY,
