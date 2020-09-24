@@ -5,7 +5,16 @@ import {useSelector } from 'react-redux'
 
 export const ActiveList = () => {
   const active = useSelector(state => state.activeItem)
-  return <div>{active[0].name}</div>
+  return <List dense>
+            {active.map((item, index)=>
+                <ListItem button key = {index}>
+                    <ListItemIcon>
+                            <CheckBoxOutlineBlankIcon/>
+                        </ListItemIcon>
+                    <ListItemText primary = {item.name}/>
+                </ListItem>
+            )}
+        </List>
 }
 
 function ItemList() {
@@ -14,26 +23,6 @@ function ItemList() {
         <br/>
         <Paper>
             <ActiveList/>
-            <List dense>
-                <ListItem button>
-                    <ListItemIcon>
-                        <CheckBoxOutlineBlankIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary = 'Item 1'/>
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon>
-                        <CheckBoxOutlineBlankIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary = 'Item 2'/>
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon>
-                        <CheckBoxOutlineBlankIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary = 'Item 3'/>
-                </ListItem>
-            </List>
         </Paper>
     </div>
   );

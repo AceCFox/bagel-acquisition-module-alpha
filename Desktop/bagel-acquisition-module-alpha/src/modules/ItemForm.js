@@ -30,7 +30,7 @@ function ItemForm() {
     <div style = {{bacgroundColor:'white'}}>
         <Paper elevation = {3}>
             <Grid container direction = 'row'>
-                <TextField label = "Grocery Item" variant='filled' name="newItem" onChange={handleInputChange} value = {input.newItem || '' }/>
+                <TextField style = {{flexGrow: 1}} label = "Grocery Item" variant='filled' name="newItem" onChange={handleInputChange} value = {input.newItem || '' }/>
                 <Button variant = 'contained' color = 'primary' onClick = {handleAdd}>Add</Button>    
             </Grid>
         </Paper>
