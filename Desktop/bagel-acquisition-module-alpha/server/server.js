@@ -1,11 +1,11 @@
 const express = require('express');
-require('dotenv').config();
+//require('dotenv').config();
 
 const app = express();
 const bodyParser = require('body-parser');;
 
 // Route includes
-const itemRouter = require ('./routes/item.router');
+const itemRouter = require('./routes/item.router');
 
 // Body parser middleware
 app.use(bodyParser.json());

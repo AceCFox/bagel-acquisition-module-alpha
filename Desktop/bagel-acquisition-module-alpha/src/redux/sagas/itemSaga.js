@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, call } from 'redux-saga/effects';
 import axios from 'axios';
 
 // worker Saga: will be fired on "GET_ACTIVE" actions
@@ -6,7 +6,7 @@ function* getActiveItem() {
   try {
     //get all active items from item table
     console.log('in get Active item')
-    const response =  yield axios.get('/api/item/active',);
+    const response =  yield axios.get( '/api/item/');
     // store these items in all active reduver
     console.log('back from server with ', response.data)
     yield put({ type: 'SET_ALL_ACTIVE', payload: response.data });
@@ -19,7 +19,7 @@ function* getActiveItem() {
 function* getInactiveItem() {
     try {
       //get all inactive items from item table
-      const response =  yield axios.get('/api/item/inactive',);
+      const response =  yield axios.get('/api/item/inactive');
       // store these items in all inactive reduver
       yield put({ type: 'SET_ALL_INACTIVE', payload: response.data });
     } catch (error) {
