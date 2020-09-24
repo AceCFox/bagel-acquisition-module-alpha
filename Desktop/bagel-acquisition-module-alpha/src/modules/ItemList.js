@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListItem, List, ListItemIcon, ListItemSecondaryAction, ListItemText, Paper, IconButton} from '@material-ui/core';
+import {ListItem, List, ListItemIcon, ListItemText, Paper,} from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 
 function ItemList() {

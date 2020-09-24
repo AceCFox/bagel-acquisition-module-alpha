@@ -1,6 +1,6 @@
-const allItem = (state = [{}], action) => {
+const activeItem = (state = [{}], action) => {
     switch (action.type) {
-      case 'SET_FOOTAGE':
+      case 'SET_ALL_ACTIVE':
         return action.payload;
       default:
         return state;
@@ -9,4 +9,4 @@ const allItem = (state = [{}], action) => {
   
   // curriculum will be on the redux state at:
   // state.footage
-  export default allItem;
+  export default activeItem;

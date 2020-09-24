@@ -5,12 +5,14 @@ const app = express();
 const bodyParser = require('body-parser');;
 
 // Route includes
+const itemRouter = require ('./routes/item.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Routes */
+app.use('/api/item', itemRouter);
 
 // Serve static files
 app.use(express.static('build'));
