@@ -5,12 +5,10 @@ const router = express.Router();
 /**
  * GET all items that need to be bought
  */
-router.get('/', (req, res) => {
-    console.log('in /api/item/active');
+router.get('/active', (req, res) => {
     const queryString = `Select * from "item" WHERE "needed" = true;`;
     pool.query(`Select * from "item" WHERE "needed" = true;`)
     .then((result)=>{
-        console.log(result.rows)
         res.send(result.rows)
     })
     .catch(error=>{
