@@ -1,6 +1,6 @@
 import React from 'react';
-import {ListItem, List, ListItemText, Paper, IconButton} from '@material-ui/core';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import {ListItem, List, ListItemText, ListItemSecondaryAction, Paper, IconButton, Icon} from '@material-ui/core';
+import {CheckBox, Delete} from '@material-ui/icons/';
 import {useSelector} from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,8 +22,12 @@ function InactiveList() {
   const dispatch = useDispatch()
 
   const handleClick = (id) =>{
-      console.log(id)
+      dispatch({type: "ITEM_NEEDED", payload: id})
   }
+
+  const handleDelete = (id) =>{
+    console.log(id)
+}
 
   return (
     <div >
@@ -32,9 +36,14 @@ function InactiveList() {
                 {inactive.map((item, index)=>
                     <ListItem key = {index}  >
                         <IconButton onClick={() => handleClick(item.id)}>
-                                <CheckBoxIcon/>
+                                <CheckBox/>
                         </IconButton>
                         <ListItemText className = {classes.crossed} primary = {item.name}/>
+                        <ListItemSecondaryAction >
+                            <IconButton onClick={() => handleDelete(item.id)}>
+                                <Delete/>
+                            </IconButton>
+                        </ListItemSecondaryAction>
                     </ListItem>
                 )}
             </List>
