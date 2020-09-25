@@ -2,12 +2,14 @@ import React from 'react';
 import {ListItem, List, ListItemIcon, ListItemText, Paper,} from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import {useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 function ItemList() {
   const active = useSelector(state => state.activeItem);
+  const dispatch = useDispatch()
 
   const handleClick = (index) =>{
-      console.log('clicked item with id:', index)
+      dispatch({type: 'ITEM_ACQUIRED', payload: index})
   }
 
   return (

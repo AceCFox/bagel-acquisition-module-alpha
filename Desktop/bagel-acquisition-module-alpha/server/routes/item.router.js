@@ -47,4 +47,17 @@ router.post('/', (req, res) => {
     })
 });
 
+//update an item to be no longer needed
+router.put('/:id', (req, res) => {
+    const queryString = `UPDATE "item" SET "needed" = false where "id" = $1;`;
+    pool.query(queryString, [req.params.id])
+    .then(result=>{
+        res.sendStatus(200)
+    })
+    .catch(error=>{
+        console.log('Error getting grocery items from database:', error)
+        res.sendStatus(500);
+    })
+});
+
 module.exports = router;
