@@ -73,6 +73,7 @@ router.put('/needed/:id', (req, res) => {
     })
 });
 
+//delete item from our database
 router.delete('/:id', (req, res) => {
     const queryString = `DELETE FROM "item" where "id" = $1;`;
     pool.query(queryString, [req.params.id])

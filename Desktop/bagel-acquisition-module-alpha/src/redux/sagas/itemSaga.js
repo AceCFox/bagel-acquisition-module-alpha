@@ -52,11 +52,25 @@ function* putItem(action){
     }
 }
 
-//worker saga will fire on "ITEM_NEEDED actions"
+//worker saga will fire on "ITEM_NEEDED" actions
 function* putBackItem(action){
     try {
         //run the put request to change the needed status of the row at the id provided
         yield axios.put('/api/item/needed/'+ action.payload);
+        //run the get active worker saga above to get the updated changes
+        yield put({type: 'GET_ACTIVE'})
+        //run the get inactive worker saga above to get the updated changes
+        yield put({type: 'GET_INACTIVE'})
+    } catch (error){
+        console.log('problem posting new item')
+    }
+}
+
+//worker saga will fire on "DELETE_ITEM" actions
+function* deleteItem(action){
+    try {
+        //run the delete request to permanently remove item from item table
+        yield axios.delete('/api/item/'+ action.payload);
         //run the get active worker saga above to get the updated changes
         yield put({type: 'GET_ACTIVE'})
         //run the get inactive worker saga above to get the updated changes
@@ -72,6 +86,7 @@ function* itemSaga() {
     yield takeLatest('ADD_ITEM', postItem);
     yield takeLatest('ITEM_ACQUIRED', putItem);
     yield takeLatest('ITEM_NEEDED', putBackItem);
+    yield takeLatest('DELETE_ITEM', deleteItem);
   }
   
   export default itemSaga;
