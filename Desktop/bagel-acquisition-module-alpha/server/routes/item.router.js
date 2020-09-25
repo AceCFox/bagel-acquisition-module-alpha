@@ -33,10 +33,18 @@ router.get('/inactive', (req, res) => {
 });
 
 /**
- * POST route template
+ * POST new item to item table
  */
 router.post('/', (req, res) => {
-
+    const queryString = `INSERT INTO "item" ("name") VALUES $1;`;
+    pool.query(queryString, [req.body.name])
+    .then(result=>{
+        res.sendStatus(201)
+    })
+    .catch(error=>{
+        console.log('Error getting grocery items from database:', error)
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;
