@@ -9,7 +9,6 @@ import {ListItem,
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle,
     Button,
     }from '@material-ui/core';
 import {CheckBox, Delete} from '@material-ui/icons/';
@@ -61,12 +60,11 @@ const handleClose = () =>{
         <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby="confirm-delete"
+        aria-describedby="delete-this-item?"
       >
-        <DialogTitle id="alert-dialog-title">{"Confirm Delete"}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText id="delete-this-item">
             Are you sure you want to permanently delete {toDelete.name} from database?
           </DialogContentText>
         </DialogContent>
