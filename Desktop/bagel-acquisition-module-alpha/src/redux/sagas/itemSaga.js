@@ -26,9 +26,22 @@ function* getInactiveItem() {
     }
   }
 
+// worker Saga: will be fired on "ADD_ITEM" actions
+function*postItem(action){
+    try {
+        //post the payload as a new item
+        yield axios.post('/api/item', action.payload);
+        //run the get active worker saga above to get the updated changes
+        yield put({type: 'GET_ACTIVE'})
+    } catch (error){
+        console.log('problem posting new item')
+    }
+}
+
 function* itemSaga() {
     yield takeLatest('GET_ACTIVE', getActiveItem);
     yield takeLatest('GET_INACTIVE', getInactiveItem);
+    yield takeLatest('ADD_ITEM', postItem);
   }
   
   export default itemSaga;

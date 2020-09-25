@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {TextField, Button, Grid, Paper, Snackbar, IconButton} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import { useDispatch } from 'react-redux'
 
 function ItemForm() {
     const [input, setInput] = useState({});
     const [open, setOpen] = useState(false);  
-    
+    const dispatch = useDispatch();
+
     const handleInputChange = (e) => setInput({
         ...input, 
         [e.currentTarget.name]: e.currentTarget.value
@@ -13,6 +15,8 @@ function ItemForm() {
 
     const handleAdd =() =>{
         setOpen(true);
+        const postObject = {name: input.newItem};
+        dispatch({type: "ADD_ITEM", payload: postObject})
         setInput({
             ...input, 
             newItem: ''

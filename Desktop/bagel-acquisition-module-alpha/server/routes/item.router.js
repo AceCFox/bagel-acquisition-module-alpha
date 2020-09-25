@@ -36,7 +36,7 @@ router.get('/inactive', (req, res) => {
  * POST new item to item table
  */
 router.post('/', (req, res) => {
-    const queryString = `INSERT INTO "item" ("name") VALUES $1;`;
+    const queryString = `INSERT INTO "item" ("name") VALUES ($1);`;
     pool.query(queryString, [req.body.name])
     .then(result=>{
         res.sendStatus(201)
