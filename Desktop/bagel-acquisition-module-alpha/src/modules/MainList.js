@@ -7,6 +7,7 @@ function MainList() {
   return (
     <div>
     <ItemForm/>
+    <p>To Buy:</p>
     <ItemList/>
     </div>
   );

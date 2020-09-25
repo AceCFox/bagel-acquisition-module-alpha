@@ -14,7 +14,6 @@ function ItemList() {
 
   return (
     <div >
-        <br/>
         <Paper>
             <List dense>
                 {active.map((item, index)=>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import MainList from "./modules/MainList";
+import InactiveList from './modules/InactiveList';
 import { useDispatch } from 'react-redux'
 
 
@@ -17,10 +18,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <h1>
           *Welcome to Bagel Acquisition Module Alpha*
-        </p>
+        </h1>
         <MainList/>
+        <p>Previously Bought:</p>
+        <InactiveList/>
       </header>
     </div>
   );
