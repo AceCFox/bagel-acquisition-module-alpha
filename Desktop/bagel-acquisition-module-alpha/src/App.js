@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import MainList from "./modules/MainList";
 import { useDispatch } from 'react-redux'
-
+import bagel from './bagel.png'
 
 function App() {
 
@@ -17,6 +17,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <br/>
+        <br/>
+        <img src = {bagel} alt = 'delicious bagel' style={{animation: `App-logo-spin 4s linear infinite`, maxWidth: '250px' }}/>
         <h1>
           *Welcome to Bagel Acquisition Module Alpha*
         </h1>
