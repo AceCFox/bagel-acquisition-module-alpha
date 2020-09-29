@@ -9,7 +9,6 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('hello hooks');
     dispatch({type: 'GET_ACTIVE'})
     dispatch({type: 'GET_INACTIVE'})
   });
@@ -19,7 +18,7 @@ function App() {
       <header className="App-header">
         <br/>
         <br/>
-        <img src = {bagel} alt = 'delicious bagel' style={{animation: `App-logo-spin 4s linear infinite`, maxWidth: '250px' }}/>
+        <img src = {bagel} alt = 'delicious bagel' style={{animation: `App-logo-spin 5s linear infinite`, maxWidth: '250px' }}/>
         <h1>
           *Welcome to Bagel Acquisition Module Alpha*
         </h1>
