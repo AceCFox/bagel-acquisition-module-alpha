@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {TextField, Button, Grid, Paper, Snackbar, IconButton} from '@material-ui/core';
+import {TextField, Button, Grid, Paper, Snackbar, IconButton, Dialog, DialogContent, DialogContentText} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { useDispatch } from 'react-redux';
-import AddModal from './AddModal';
+import { useDispatch } from 'react-redux'
 
-function ItemForm() {
+function AddModal() {
     const [input, setInput] = useState({});
     const [open, setOpen] = useState(false);  
     const dispatch = useDispatch();
@@ -32,8 +31,7 @@ function ItemForm() {
       };
       
   return (
-    <div style = {{bacgroundColor:'white'}}>
-        <Paper elevation = {3}>
+    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
             <Grid container direction = 'row'>
                 <TextField 
                     style = {{flexGrow: 1}} 
@@ -46,7 +44,7 @@ function ItemForm() {
                 />
                 <Button variant = 'contained' color = 'primary' onClick = {handleAdd}>Add</Button>    
             </Grid>
-        </Paper>
+        
         <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
@@ -64,8 +62,9 @@ function ItemForm() {
           </React.Fragment>
         }
         />
-    </div>
+    </Dialog>
   );
 }
 
-export default ItemForm;
+export default AddModal;
+
